@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist 5 Passi — Zeta Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --zeta-dark: #1a1f2e;
+  --zeta-navy: #2a3148;
+  --zeta-blue: #3b6b9c;
+  --zeta-accent: #4a90d9;
+  --zeta-light-blue: #e8f0fa;
+  --zeta-green: #2d9e6f;
+  --zeta-green-soft: #e6f7ef;
+  --zeta-orange: #e8883e;
+  --zeta-orange-soft: #fef3e8;
+  --zeta-red: #d94a4a;
+  --zeta-red-soft: #fde8e8;
+  --zeta-gold: #d4a03c;
+  --zeta-gold-soft: #fdf6e3;
+  --text-primary: #1a1f2e;
+  --text-secondary: #5a6178;
+  --text-light: #8a90a4;
+  --bg-page: #f5f7fa;
+  --bg-card: #ffffff;
+  --bg-subtle: #f0f2f6;
+  --border: #e2e5ec;
+  --shadow-sm: 0 1px 3px rgba(26,31,46,0.06);
+  --shadow-md: 0 4px 16px rgba(26,31,46,0.08);
+  --shadow-lg: 0 8px 32px rgba(26,31,46,0.12);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--zeta-dark) 0%, var(--zeta-navy) 40%, var(--zeta-blue) 100%);
+  color: white;
+  padding: 64px 24px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(74,144,217,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(45,158,111,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg-page);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+}
+
+.hero-logo span {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(45,158,111,0.2);
+  border: 1px solid rgba(45,158,111,0.3);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #7fdbb5;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--zeta-accent);
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-bottom: 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(212,160,60,0.15);
+  border: 1px solid rgba(212,160,60,0.25);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f0d080;
+}
+
+.hero-feature svg { flex-shrink: 0; }
+
+/* === LAYOUT === */
+.container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === INTRO SECTION === */
+.intro-section {
+  padding: 48px 0 40px;
+}
+
+.intro-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.intro-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--zeta-dark);
+}
+
+.intro-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.key-concept {
+  margin-top: 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--zeta-dark) 0%, var(--zeta-navy) 100%);
+  border-radius: var(--radius);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.key-concept::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: rgba(74,144,217,0.15);
+  border-radius: 50%;
+}
+
+.key-concept .label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--zeta-accent);
+  margin-bottom: 10px;
+}
+
+.key-concept p {
+  color: rgba(255,255,255,0.9);
+  font-size: 15px;
+  line-height: 1.7;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.key-concept strong { color: white; font-weight: 600; }
+
+/* === HOW TO USE === */
+.how-to-use {
+  margin-top: 32px;
+}
+
+.how-to-use h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--zeta-dark);
+}
+
+.score-legend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .score-legend { grid-template-columns: 1fr; }
+}
+
+.score-band {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.score-band .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.score-band.red { background: var(--zeta-red-soft); }
+.score-band.red .dot { background: var(--zeta-red); }
+.score-band.orange { background: var(--zeta-orange-soft); }
+.score-band.orange .dot { background: var(--zeta-orange); }
+.score-band.gold { background: var(--zeta-gold-soft); }
+.score-band.gold .dot { background: var(--zeta-gold); }
+.score-band.green { background: var(--zeta-green-soft); }
+.score-band.green .dot { background: var(--zeta-green); }
+
+.score-band strong { font-weight: 600; margin-right: 4px; }
+
+/* === STEPS === */
+.steps-section {
+  padding: 16px 0 48px;
+}
+
+.step-block {
+  margin-bottom: 32px;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.step-header:hover {
+  background: var(--bg-subtle);
+}
+
+.step-number {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--zeta-dark), var(--zeta-blue));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.step-info { flex: 1; }
+
+.step-info h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--zeta-dark);
+  margin-bottom: 2px;
+}
+
+.step-info p {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.step-score-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--bg-subtle);
+  border-radius: 10px;
+  min-width: 64px;
+  transition: all 0.3s;
+}
+
+.step-score-badge .score-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--zeta-dark);
+  line-height: 1;
+}
+
+.step-score-badge .score-max {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.step-score-badge.has-points {
+  background: var(--zeta-green-soft);
+}
+
+.step-score-badge.has-points .score-value {
+  color: var(--zeta-green);
+}
+
+.step-chevron {
+  width: 24px;
+  height: 24px;
+  color: var(--text-light);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.step-block.open .step-chevron {
+  transform: rotate(180deg);
+}
+
+.step-body {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 8px 28px 28px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.step-block:not(.open) .step-body {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+}
+
+.step-block.open .step-body {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.step-block.open .step-header {
+  border-bottom: none;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--bg-subtle);
+  transition: opacity 0.3s;
+}
+
+.check-item:last-of-type {
+  border-bottom: none;
+}
+
+.check-item.checked {
+  opacity: 0.6;
+}
+
+.check-item.checked .check-text {
+  text-decoration: line-through;
+  text-decoration-color: var(--text-light);
+}
+
+.checkbox-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: white;
+}
+
+.checkbox-wrapper input:checked + .checkbox-custom {
+  background: var(--zeta-green);
+  border-color: var(--zeta-green);
+}
+
+.checkbox-custom svg {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.checkbox-wrapper input:checked + .checkbox-custom svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox-wrapper:hover .checkbox-custom {
+  border-color: var(--zeta-blue);
+  box-shadow: 0 0 0 3px rgba(74,144,217,0.1);
+}
+
+.check-content { flex: 1; }
+
+.check-text {
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.55;
+  transition: all 0.3s;
+}
+
+.check-points {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 2px 10px;
+  background: var(--zeta-light-blue);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--zeta-blue);
+}
+
+.step-tip {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: var(--zeta-light-blue);
+  border-radius: 10px;
+  border-left: 3px solid var(--zeta-accent);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.step-tip svg {
+  flex-shrink: 0;
+  color: var(--zeta-accent);
+  margin-top: 1px;
+}
+
+.step-tip p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* === READINESS SCORE === */
+.readiness-section {
+  padding: 0 0 48px;
+}
+
+.readiness-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.readiness-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--zeta-dark);
+}
+
+.readiness-card .subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+}
+
+.score-ring-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 32px;
+}
+
+.score-ring svg {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg);
+}
+
+.score-ring .bg-ring {
+  fill: none;
+  stroke: var(--bg-subtle);
+  stroke-width: 10;
+}
+
+.score-ring .progress-ring {
+  fill: none;
+  stroke: var(--zeta-green);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 502.65;
+  stroke-dashoffset: 502.65;
+  transition: stroke-dashoffset 1s ease, stroke 0.5s ease;
+}
+
+.score-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--zeta-dark);
+  line-height: 1;
+  transition: color 0.5s;
+}
+
+.score-label {
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.score-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 36px;
+  transition: all 0.5s;
+}
+
+.score-status.level-0 { background: var(--bg-subtle); color: var(--text-light); }
+.score-status.level-1 { background: var(--zeta-red-soft); color: var(--zeta-red); }
+.score-status.level-2 { background: var(--zeta-orange-soft); color: var(--zeta-orange); }
+.score-status.level-3 { background: var(--zeta-gold-soft); color: var(--zeta-gold); }
+.score-status.level-4 { background: var(--zeta-green-soft); color: var(--zeta-green); }
+
+.score-breakdown {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 600px) {
+  .score-breakdown {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.breakdown-item {
+  padding: 14px 8px;
+  background: var(--bg-subtle);
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.breakdown-item .bd-step {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.breakdown-item .bd-score {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--zeta-dark);
+  line-height: 1.3;
+}
+
+.breakdown-item .bd-max {
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+.breakdown-item.active {
+  background: var(--zeta-green-soft);
+}
+
+.breakdown-item.active .bd-score {
+  color: var(--zeta-green);
+}
+
+.score-message {
+  max-width: 520px;
+  margin: 0 auto 32px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-light);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  border-color: var(--zeta-red);
+  color: var(--zeta-red);
+  background: var(--zeta-red-soft);
+}
+
+/* === CTA === */
+.cta-section {
+  padding: 0 0 64px;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, var(--zeta-dark) 0%, var(--zeta-navy) 50%, var(--zeta-blue) 100%);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 100%, rgba(45,158,111,0.12) 0%, transparent 40%),
+    radial-gradient(circle at 70% 0%, rgba(74,144,217,0.12) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.cta-card > * { position: relative; z-index: 1; }
+
+.cta-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cta-card .cta-subtitle {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.cta-point {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+.cta-point svg {
+  color: var(--zeta-green);
+  flex-shrink: 0;
+}
+
+.cta-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: white;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--zeta-dark);
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.cta-email:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.cta-email svg { color: var(--zeta-blue); }
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  color: var(--text-light);
+  border-top: 1px solid var(--border);
+}
+
+.footer a {
+  color: var(--zeta-blue);
+  text-decoration: none;
+}
+
+/* === PROGRESS BAR === */
+.progress-bar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  transition: box-shadow 0.3s;
+}
+
+.progress-bar-wrapper.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.progress-bar-inner {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progress-bar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--zeta-dark);
+  flex-shrink: 0;
+}
+
+.progress-track {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-subtle);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--zeta-blue), var(--zeta-green));
+  border-radius: 3px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+.progress-score-mini {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--zeta-dark);
+  flex-shrink: 0;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* === MODAL === */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,31,46,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-box {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  animation: fadeInUp 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: 4px;
+}
+
+.modal-close:hover { color: var(--zeta-dark); }
+
+.modal-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--zeta-dark);
+}
+
+.modal-box .modal-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.modal-score-recap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--zeta-light-blue);
+  border-radius: 10px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.modal-score-recap strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--zeta-blue);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--zeta-dark);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border 0.2s;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--zeta-blue);
+  box-shadow: 0 0 0 3px rgba(74,144,217,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--zeta-dark), var(--zeta-blue));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.form-success .success-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--zeta-green-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--zeta-green);
+}
+
+.form-success h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--zeta-dark);
+}
+
+.form-success p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-block { animation: fadeInUp 0.5s ease both; }
+.step-block:nth-child(1) { animation-delay: 0.1s; }
+.step-block:nth-child(2) { animation-delay: 0.15s; }
+.step-block:nth-child(3) { animation-delay: 0.2s; }
+.step-block:nth-child(4) { animation-delay: 0.25s; }
+.step-block:nth-child(5) { animation-delay: 0.3s; }
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .hero { padding: 48px 20px 64px; }
+  .intro-card { padding: 28px 20px; }
+  .step-header { padding: 16px 20px; gap: 12px; }
+  .step-body { padding: 4px 20px 20px; }
+  .readiness-card { padding: 28px 20px; }
+  .cta-card { padding: 36px 24px; }
+  .step-info h2 { font-size: 16px; }
+  .score-breakdown { grid-template-columns: repeat(3, 1fr); }
+  .modal-box { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar-wrapper" id="progressBar">
+  <div class="progress-bar-inner">
+    <div class="progress-bar-logo">
+      <img src="https://zetaconsulting.info/wp-content/uploads/2023/12/mrc-zeta.svg" alt="Zeta Consulting" style="height:24px;">
+      <span>Zeta Consulting</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-score-mini" id="progressScore">0 / 100</div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-logo">
+      <img src="https://zetaconsulting.info/wp-content/uploads/2023/12/mrc-zeta-w.svg" alt="Zeta Consulting" style="height:32px;">
+      <span>Zeta Consulting</span>
+    </div>
+    <br>
+    <div class="hero-badge">Checklist Operativa</div>
+    <h1>5 passi per essere pronti alla richiesta del <em>tuo cliente</em></h1>
+    <p class="hero-sub">Come prepararsi alle richieste di dati sulle emissioni della tua supply chain e trasformare un obbligo in opportunità</p>
+    <div class="hero-feature">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+      Include il Readiness Score: scopri a che punto sei
+    </div>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="intro-section">
+  <div class="container">
+    <div class="intro-card">
+      <h2>Perché questa checklist?</h2>
+      <p>Le grandi aziende sono oggi obbligate a redigere il report di sostenibilità, sia per conformità normativa (CSRD) sia per esigenze di posizionamento sul mercato. Per completare il proprio <strong>Scope 3</strong>, queste aziende devono raccogliere i dati sulle emissioni di tutta la catena di fornitura.</p>
+      <p>Questo significa che, a cascata, anche la tua azienda riceverà, o ha già ricevuto, richieste di dati che oggi probabilmente non è in grado di fornire.</p>
+      <p>Prepararsi richiede tempo, struttura e competenze. Ma il percorso che porta a rispondere a queste richieste genera anche un valore enorme: consapevolezza energetica, risparmio sui costi e vantaggio competitivo.</p>
+
+      <div class="key-concept">
+        <div class="label">💡 Il concetto chiave</div>
+        <p><strong>Non è la legge che obbliga direttamente la tua azienda, è il mercato.</strong> Se il tuo cliente ha bisogno dei tuoi dati e tu non glieli sai dare, qualcun altro glieli darà. Da fornitore a partner: questa è la trasformazione in atto.</p>
+      </div>
+
+      <div class="how-to-use">
+        <h3>Come funziona il punteggio</h3>
+        <p style="font-size:14px;color:var(--text-secondary);margin-bottom:14px;">Spunta le azioni completate. Il punteggio si aggiorna automaticamente. Massimo: 100 punti.</p>
+        <div class="score-legend">
+          <div class="score-band red"><div class="dot"></div><strong>0–30</strong> Fase iniziale</div>
+          <div class="score-band orange"><div class="dot"></div><strong>31–60</strong> In cammino</div>
+          <div class="score-band gold"><div class="dot"></div><strong>61–80</strong> Buon livello</div>
+          <div class="score-band green"><div class="dot"></div><strong>81–100</strong> Pronto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="steps-section">
+  <div class="container" id="stepsContainer">
+    <!-- Steps generated by JS -->
+  </div>
+</section>
+
+<!-- Readiness Score -->
+<section class="readiness-section">
+  <div class="container">
+    <div class="readiness-card">
+      <h2>Il tuo Readiness Score</h2>
+      <p class="subtitle">Riporta i punteggi di ogni passo per scoprire il tuo livello di preparazione</p>
+
+      <div class="score-ring-container">
+        <div class="score-ring">
+          <svg viewBox="0 0 180 180">
+            <circle class="bg-ring" cx="90" cy="90" r="80" />
+            <circle class="progress-ring" id="scoreRing" cx="90" cy="90" r="80" />
+          </svg>
+        </div>
+        <div class="score-center">
+          <div class="score-number" id="totalScore">0</div>
+          <div class="score-label">su 100</div>
+        </div>
+      </div>
+
+      <div class="score-status level-0" id="scoreStatus">
+        Inizia a compilare la checklist
+      </div>
+
+      <div class="score-breakdown" id="scoreBreakdown">
+        <!-- Generated by JS -->
+      </div>
+
+      <div class="score-message" id="scoreMessage">
+        Spunta le azioni che hai già completato per calcolare il tuo Readiness Score.
+      </div>
+
+      <button class="reset-btn" onclick="resetAll()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        Ricomincia da capo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+      <h2>E adesso?</h2>
+      <p class="cta-subtitle">Qualunque sia il tuo punteggio, il passo successivo è trasformare questa consapevolezza in un piano d'azione concreto.</p>
+      <div class="cta-points">
+        <div class="cta-point">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          A che punto sei rispetto ai 5 passi
+        </div>
+        <div class="cta-point">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Le priorità per la tua azienda
+        </div>
+        <div class="cta-point">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Da dove conviene partire
+        </div>
+      </div>
+      <button onclick="openModal()" class="cta-email">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Ricevi il tuo report gratuitamente!
+      </button>
+      <br><br>
+      <p class="cta-subtitle">giorgio.pesce@zetaconsulting.info - +39.388.4511117</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p><strong>Zeta Consulting S.R.L.</strong> — Consulenza in efficienza energetica e decarbonizzazione</p>
+  <p style="margin-top:4px;"><a href="https://www.zetaconsulting.info" target="_blank">www.zetaconsulting.info</a> &nbsp;·&nbsp; © 2025 Zeta Consulting S.R.L. — Tutti i diritti riservati</p>
+</footer>
+
+<!-- ✅ MODAL: deve stare PRIMA dello script -->
+<div class="modal-overlay" id="contactModal" onclick="closeModalOnOverlay(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div id="formContent">
+      <h3>Richiedi un confronto</h3>
+      <p class="modal-sub">Ti risponderemo entro 24 ore per analizzare insieme i tuoi risultati e definire i prossimi passi.</p>
+
+      <div class="modal-score-recap">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+        <span>Il tuo Readiness Score: <strong id="modalScore">0</strong> / 100</span>
+      </div>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="inputName">Nome e cognome *</label>
+          <input type="text" id="inputName" name="name" placeholder="Mario Rossi" required>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email aziendale *</label>
+          <input type="email" id="inputEmail" name="email" placeholder="mario.rossi@azienda.it" required>
+        </div>
+        <div class="form-group">
+          <label for="inputCompany">Azienda</label>
+          <input type="text" id="inputCompany" name="company" placeholder="Nome azienda">
+        </div>
+        <div class="form-group">
+          <label for="inputNote">Note aggiuntive (opzionale)</label>
+          <textarea id="inputNote" name="note" placeholder="Raccontaci brevemente la tua situazione..."></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" id="emailSubject" value="Nuova richiesta confronto - Checklist Decarbonizzazione">
+        <input type="hidden" name="checklist_risultati" id="checklistData">
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Invia richiesta
+        </button>
+      </form>
+    </div>
+
+    <div class="form-success" id="formSuccess">
+      <div class="success-icon">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h4>Richiesta inviata!</h4>
+      <p>Ti contatteremo entro 48 ore all'indirizzo email indicato.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ SCRIPT: sempre dopo il modal -->
+<script>
+const FORMSPREE_ID = 'mnjbkjnj';
+
+const STEPS_DATA = [
+  {
+    num: 1,
+    title: "Mappa i tuoi consumi",
+    desc: "Crea una fotografia chiara di come la tua azienda consuma energia",
+    tip: "Non serve la perfezione al primo giro: anche una mappatura approssimativa ti darà già visibilità su dove si concentrano i consumi e dove agire prima.",
+    items: [
+      { text: "Raccogli le bollette degli ultimi 24 mesi per ogni vettore energetico (elettricità, gas, gasolio, GPL, ecc.)", points: 3 },
+      { text: "Identifica tutti i punti di fornitura (POD per l'elettricità, PDR per il gas) e verifica che siano tutti censiti", points: 3 },
+      { text: "Crea un registro dei principali macchinari e impianti con le relative potenze nominali e ore di funzionamento stimate", points: 4 },
+      { text: "Mappa i processi produttivi e identifica quali sono quelli più energivori", points: 4 },
+      { text: "Raccogli i dati di produzione (unità prodotte, tonnellate lavorate, ecc.) degli ultimi 24 mesi per correlare ai consumi", points: 3 },
+      { text: "Identifica i consumi non legati alla produzione (illuminazione, climatizzazione, ausiliari) e stimane il peso percentuale", points: 3 }
+    ]
+  },
+  {
+    num: 2,
+    title: "Struttura la raccolta dati",
+    desc: "Passa dalle bollette a un sistema organizzato e ripetibile",
+    tip: "La struttura di raccolta dati che crei per rispondere ai clienti è la stessa che ti servirà per un eventuale percorso ISO 50001 o per un audit energetico.",
+    items: [
+      { text: "Definisci un responsabile interno per la raccolta e gestione dei dati energetici (Energy Manager o referente dedicato)", points: 4 },
+      { text: "Crea un foglio di raccolta dati strutturato (o un database) con cadenza almeno mensile per ogni vettore energetico", points: 3 },
+      { text: "Registra mensilmente i dati di produzione in modo che siano correlabili ai consumi energetici", points: 3 },
+      { text: "Valuta l'installazione di contatori divisionalizzati sulle utenze principali per disaggregare i consumi per reparto o linea", points: 4 },
+      { text: "Definisci i KPI energetici rilevanti per la tua attività (es. kWh/unità prodotta, kWh/m², Sm³/tonnellata)", points: 3 },
+      { text: "Stabilisci una baseline energetica (anno di riferimento) per poter misurare i miglioramenti nel tempo", points: 3 }
+    ]
+  },
+  {
+    num: 3,
+    title: "Implementa il monitoraggio",
+    desc: "Dai dati statici passa a un sistema di monitoraggio continuo",
+    tip: "Un sistema di monitoraggio non è un costo, è un investimento. Nella maggior parte dei casi, le anomalie individuate nei primi mesi ripagano ampiamente la spesa.",
+    items: [
+      { text: "Valuta e seleziona una piattaforma di monitoraggio energetico adatta alla dimensione e complessità della tua azienda", points: 4 },
+      { text: "Installa sensori e misuratori sui principali punti di consumo per avere dati in tempo reale o a intervalli ravvicinati", points: 4 },
+      { text: "Configura allarmi e soglie per individuare anomalie nei consumi (picchi, sprechi notturni, derive dai valori attesi)", points: 3 },
+      { text: "Crea dashboard di sintesi che mostrino consumi, costi e KPI in modo leggibile anche per chi non è un tecnico", points: 3 },
+      { text: "Definisci una procedura di revisione periodica dei dati (settimanale o mensile) per garantire continuità e qualità", points: 3 },
+      { text: "Integra, dove possibile, i dati energetici con il gestionale aziendale (ERP/MES) per automatizzare le correlazioni", points: 3 }
+    ]
+  },
+  {
+    num: 4,
+    title: "Calcola e riduci le emissioni",
+    desc: "Trasforma i dati in un inventario emissivo e individua dove intervenire",
+    tip: "Il passaggio da Scope 2 location-based a market-based attraverso l'acquisto di energia verde certificata è spesso il primo intervento a costo quasi zero.",
+    items: [
+      { text: "Calcola le emissioni Scope 1 (combustione diretta: gas, gasolio, GPL) utilizzando i fattori di emissione ufficiali ISPRA/IPCC", points: 3 },
+      { text: "Calcola le emissioni Scope 2 (elettricità acquistata) sia con metodo location-based che market-based", points: 3 },
+      { text: "Identifica gli interventi di efficientamento a maggior impatto sulla base dei dati raccolti nei passi precedenti", points: 4 },
+      { text: "Valuta le opzioni di approvvigionamento: PPA, Garanzie d'Origine, autoproduzione da fonti rinnovabili", points: 3 },
+      { text: "Costruisci un piano di riduzione emissioni con obiettivi a breve (1 anno), medio (3 anni) e lungo termine (5+ anni)", points: 4 },
+      { text: "Verifica gli incentivi disponibili (certificati bianchi, conto termico) per finanziare gli interventi", points: 3 }
+    ]
+  },
+  {
+    num: 5,
+    title: "Comunica e rispondi",
+    desc: "Prepara la documentazione per i tuoi clienti e il mercato",
+    tip: "Essere tra i primi fornitori nel tuo settore a fornire questi dati in modo strutturato ti posiziona come partner strategico, non come semplice fornitore sostituibile.",
+    items: [
+      { text: "Prepara una scheda sintetica delle emissioni della tua azienda (carbon footprint aziendale) aggiornabile annualmente", points: 4 },
+      { text: "Definisci un processo interno per rispondere ai questionari dei clienti (tempi, responsabili, dati da fornire) — Scope 3", points: 3 },
+      { text: "Predisponi i dati per calcolare il carbon footprint di prodotto, se richiesto dai clienti o dal tuo settore", points: 4 },
+      { text: "Documenta le azioni di riduzione già intraprese e i risultati ottenuti (tCO₂ evitate, % di miglioramento)", points: 3 },
+      { text: "Valuta se ottenere certificazioni riconosciute (ISO 14064, ISO 50001, EcoVadis) per dare credibilità ai tuoi dati", points: 3 },
+      { text: "Comunica il tuo impegno: aggiorna il sito web, i materiali commerciali e le presentazioni con i dati di sostenibilità", points: 3 }
+    ]
+  }
+];
+
+const stepScores = [0, 0, 0, 0, 0];
+let totalScore = 0;
+
+function renderSteps() {
+  const container = document.getElementById('stepsContainer');
+  let html = '';
+  STEPS_DATA.forEach((step, si) => {
+    html += `
+    <div class="step-block open" data-step="${si}">
+      <div class="step-header" onclick="toggleStep(${si})">
+        <div class="step-number">${step.num}</div>
+        <div class="step-info">
+          <h2>${step.title}</h2>
+          <p>${step.desc}</p>
+        </div>
+        <div class="step-score-badge" id="stepBadge${si}">
+          <span class="score-value" id="stepScore${si}">0</span>
+          <span class="score-max">/ 20</span>
+        </div>
+        <svg class="step-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="step-body">
+        ${step.items.map((item, ii) => `
+        <div class="check-item" id="item-${si}-${ii}">
+          <label class="checkbox-wrapper">
+            <input type="checkbox" onchange="onCheck(${si}, ${ii}, ${item.points}, this.checked)">
+            <div class="checkbox-custom">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+          </label>
+          <div class="check-content">
+            <div class="check-text">${item.text}</div>
+            <div class="check-points">+${item.points} pt</div>
+          </div>
+        </div>
+        `).join('')}
+        <div class="step-tip">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <p><strong>Suggerimento:</strong> ${step.tip}</p>
+        </div>
+      </div>
+    </div>`;
+  });
+  container.innerHTML = html;
+  renderBreakdown();
+}
+
+function renderBreakdown() {
+  const bd = document.getElementById('scoreBreakdown');
+  bd.innerHTML = STEPS_DATA.map((s, i) => `
+    <div class="breakdown-item" id="bd-${i}">
+      <div class="bd-step">Passo ${s.num}</div>
+      <div class="bd-score" id="bdScore${i}">0</div>
+      <div class="bd-max">/ 20</div>
+    </div>
+  `).join('');
+}
+
+function toggleStep(si) {
+  document.querySelector(`[data-step="${si}"]`).classList.toggle('open');
+}
+
+function onCheck(si, ii, pts, checked) {
+  const item = document.getElementById(`item-${si}-${ii}`);
+  if (checked) { stepScores[si] += pts; item.classList.add('checked'); }
+  else { stepScores[si] -= pts; item.classList.remove('checked'); }
+  updateScores();
+}
+
+function updateScores() {
+  totalScore = stepScores.reduce((a, b) => a + b, 0);
+
+  stepScores.forEach((score, i) => {
+    document.getElementById(`stepScore${i}`).textContent = score;
+    document.getElementById(`stepBadge${i}`).classList.toggle('has-points', score > 0);
+  });
+
+  document.getElementById('totalScore').textContent = totalScore;
+
+  const ring = document.getElementById('scoreRing');
+  const circumference = 2 * Math.PI * 80;
+  ring.style.strokeDashoffset = circumference - (totalScore / 100) * circumference;
+
+  if (totalScore === 0) ring.style.stroke = 'var(--bg-subtle)';
+  else if (totalScore <= 30) ring.style.stroke = 'var(--zeta-red)';
+  else if (totalScore <= 60) ring.style.stroke = 'var(--zeta-orange)';
+  else if (totalScore <= 80) ring.style.stroke = 'var(--zeta-gold)';
+  else ring.style.stroke = 'var(--zeta-green)';
+
+  const scoreNum = document.getElementById('totalScore');
+  if (totalScore === 0) scoreNum.style.color = 'var(--zeta-dark)';
+  else if (totalScore <= 30) scoreNum.style.color = 'var(--zeta-red)';
+  else if (totalScore <= 60) scoreNum.style.color = 'var(--zeta-orange)';
+  else if (totalScore <= 80) scoreNum.style.color = 'var(--zeta-gold)';
+  else scoreNum.style.color = 'var(--zeta-green)';
+
+  const status = document.getElementById('scoreStatus');
+  status.className = 'score-status';
+  if (totalScore === 0) { status.classList.add('level-0'); status.textContent = 'Inizia a compilare la checklist'; }
+  else if (totalScore <= 30) { status.classList.add('level-1'); status.textContent = '🔴 Fase iniziale'; }
+  else if (totalScore <= 60) { status.classList.add('level-2'); status.textContent = '🟠 In cammino'; }
+  else if (totalScore <= 80) { status.classList.add('level-3'); status.textContent = '🟡 Buon livello'; }
+  else { status.classList.add('level-4'); status.textContent = '🟢 Pronto'; }
+
+  stepScores.forEach((score, i) => {
+    document.getElementById(`bdScore${i}`).textContent = score;
+    document.getElementById(`bd-${i}`).classList.toggle('active', score > 0);
+  });
+
+  const msg = document.getElementById('scoreMessage');
+  if (totalScore === 0) msg.textContent = 'Spunta le azioni che hai già completato per calcolare il tuo Readiness Score.';
+  else if (totalScore <= 30) msg.textContent = 'La tua azienda non ha ancora una struttura per gestire i dati energetici e le emissioni. È il momento di partire: il rischio di perdere clienti è concreto.';
+  else if (totalScore <= 60) msg.textContent = 'Hai iniziato il percorso ma mancano ancora elementi fondamentali. Concentra gli sforzi sulle aree scoperte prima che arrivino le richieste dai clienti.';
+  else if (totalScore <= 80) msg.textContent = 'Hai le basi solide. Ora puoi affinare il sistema, completare le aree mancanti e cominciare a comunicare il tuo impegno ai clienti in modo proattivo.';
+  else msg.textContent = 'Sei in una posizione di forza. Puoi rispondere alle richieste con sicurezza e posizionarti come partner strategico nella catena di fornitura.';
+
+  document.getElementById('progressFill').style.width = totalScore + '%';
+  document.getElementById('progressScore').textContent = totalScore + ' / 100';
+}
+
+function resetAll() {
+  stepScores.fill(0);
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+  document.querySelectorAll('.check-item').forEach(el => el.classList.remove('checked'));
+  updateScores();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('progressBar').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+/* === MODAL === */
+function openModal() {
+  document.getElementById('modalScore').textContent = totalScore;
+  document.getElementById('checklistData').value = buildChecklistSummary();
+  document.getElementById('emailSubject').value = `Richiesta confronto — Score ${totalScore}/100`;
+  document.getElementById('contactModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('contactModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnOverlay(e) {
+  if (e.target === document.getElementById('contactModal')) closeModal();
+}
+
+function buildChecklistSummary() {
+  let text = `READINESS SCORE: ${totalScore}/100\n`;
+  text += `=====================================\n\n`;
+  STEPS_DATA.forEach((step, si) => {
+    text += `PASSO ${step.num} — ${step.title}: ${stepScores[si]}/20\n`;
+    step.items.forEach((item, ii) => {
+      const cb = document.querySelector(`#item-${si}-${ii} input[type="checkbox"]`);
+      text += `  ${cb && cb.checked ? '✅' : '☐'} ${item.text}\n`;
+    });
+    text += '\n';
+  });
+  return text;
+}
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Invio in corso...';
+
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      setTimeout(closeModal, 3000);
+    } else {
+      alert('Errore nell\'invio. Riprova o scrivici a giorgio.pesce@zetaconsulting.info');
+      btn.disabled = false;
+      btn.textContent = 'Invia richiesta';
+    }
+  } catch {
+    alert('Errore di connessione. Riprova tra qualche istante.');
+    btn.disabled = false;
+    btn.textContent = 'Invia richiesta';
+  }
+});
+
+// Init
+renderSteps();
+updateScores();
+</script>
+
+</body>
+</html>
